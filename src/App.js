@@ -2,81 +2,97 @@ import "./App.css";
 import CountUp from "react-countup";
 import ReactPlayer from "react-player";
 import { useState } from "react";
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 function App() {
   const [submitting, setSubmitting] = useState(false);
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitting(true);
 
     setTimeout(() => {
       setSubmitting(false);
-    }, 3000)
-  }
+    }, 3000);
+  };
 
   return (
     <div className="App">
       <div className="header-logo">
-      {[false].map((expand) => (
-        <Navbar key={expand} expand={expand} className="mb-3" bg="black" variant="dark" fixed="top">
-          <Container fluid>
-            <Navbar.Brand href="#"><img src="https://demo.cocobasic.com/romea-wp/demo-1/wp-content/themes/romea-wp/images/logo.png"></img></Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">About</Nav.Link>
-                  <Nav.Link href="#action2">Portfolio</Nav.Link>
-                  <Nav.Link href="#action2">Education</Nav.Link>
-                  <Nav.Link href="#action2">Skills</Nav.Link>
-                  <Nav.Link href="#action2">Experience</Nav.Link>
-                  <Nav.Link href="#action2">Blog</Nav.Link>
-                  <Nav.Link href="#action2">Cover Letter</Nav.Link>
-                  <Nav.Link href="#action2">Testimonial</Nav.Link>
-                  <Nav.Link href="#action2">Contact</Nav.Link>
-                  <NavDropdown
-                    title="Extra Pages"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item href="#action3">FULL BLOG</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                    POST PAGE
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-                
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))}
+        {[false].map((expand) => (
+          <Navbar
+            key={expand}
+            expand={expand}
+            className="mb-3"
+            bg="black"
+            variant="dark"
+            fixed="top"
+          >
+            <Container fluid>
+              <Navbar.Brand href="#">
+                <img src="https://demo.cocobasic.com/romea-wp/demo-1/wp-content/themes/romea-wp/images/logo.png"></img>
+              </Navbar.Brand>
+              <Navbar.Toggle
+                aria-controls={`offcanvasNavbar-expand-${expand}`}
+              />
+              <Navbar.Offcanvas
+                id={`offcanvasNavbar-expand-${expand}`}
+                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                placement="end"
+              >
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                    Offcanvas
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <Nav className="justify-content-end flex-grow-1 pe-3">
+                    <Nav.Link href="#action1">Home</Nav.Link>
+                    <Nav.Link href="#action2">About</Nav.Link>
+                    <Nav.Link href="#action2">Portfolio</Nav.Link>
+                    <Nav.Link href="#action2">Education</Nav.Link>
+                    <Nav.Link href="#action2">Skills</Nav.Link>
+                    <Nav.Link href="#action2">Experience</Nav.Link>
+                    <Nav.Link href="#action2">Blog</Nav.Link>
+                    <Nav.Link href="#action2">Cover Letter</Nav.Link>
+                    <Nav.Link href="#action2">Testimonial</Nav.Link>
+                    <Nav.Link href="#action2">Contact</Nav.Link>
+                    <NavDropdown
+                      title="Extra Pages"
+                      id={`offcanvasNavbarDropdown-expand-${expand}`}
+                    >
+                      <NavDropdown.Item href="#action3">
+                        FULL BLOG
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action4">
+                        POST PAGE
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="#action5">
+                        Something else here
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav>
+                </Offcanvas.Body>
+              </Navbar.Offcanvas>
+            </Container>
+          </Navbar>
+        ))}
       </div>
       {/* end-header */}
-      <div className="container-fluid mt-3 text-white bg-dark">
+      <div className="container-fluid mt-3 text-white bg-black">
         <div className="row">
           <div className="col">
-            <br /><br /><h1>Hello I'm Rob Davidson</h1>
+            <br />
+            <br />
+            <h1>Hello I'm Rob Davidson</h1>
             <p>
               A full stack allaround <strong>designer </strong>that placerat in
               massa consectetur
@@ -143,27 +159,91 @@ function App() {
         </div>
       </div>
       {/* end-page2 --About */}
-      <div className="container-fluid mt-3 text-white bg-dark">
+      <div className="container-fluid mt-3 text-white bg-black">
         <h2 className="Portfolio">Portfolio</h2>
         <p>
           A full stack allaround designer that tristique est placerat in massa{" "}
           <strong>consectetur quisque</strong> lobortis vitae faucibus diam
         </p>
-        <div className="01">
-          <h6>01</h6>
-          <h3>Parallax</h3>
+        <div>
+          {["right"].map((placement) => (
+            <OverlayTrigger
+              key={placement}
+              placement={placement}
+              overlay={
+                <Tooltip id={`tooltip-${placement}`}>
+                  <img src="https://demo.cocobasic.com/romea-wp/demo-1/wp-content/uploads/2020/09/p_item1.jpg"></img>
+                </Tooltip>
+              }
+            >
+              <Button className="bg-black" variant="secondary" style={{border:"none"}}>
+                <div style={{ display: "flex" }}>
+                  <h6 style={{ padding:"0"}}>01</h6>
+                  <h3>Parallax</h3>
+                </div>
+              </Button>
+            </OverlayTrigger>
+          ))}
         </div>
-        <div className="02">
-          <h6>02</h6>
-          <h3>Grid</h3>
+        <div>
+          {["right"].map((placement) => (
+            <OverlayTrigger
+              key={placement}
+              placement={placement}
+              overlay={
+                <Tooltip id={`tooltip-${placement}`}>
+                  <img src="https://demo.cocobasic.com/romea-wp/demo-1/wp-content/uploads/2020/09/p_item2.jpg"></img>
+                </Tooltip>
+              }
+            >
+              <Button className="bg-black" variant="secondary" style={{border:"none"}}>
+                <div style={{ display: "flex" }}>
+                  <h6>02</h6>
+                  <h3>Grid</h3>
+                </div>
+              </Button>
+            </OverlayTrigger>
+          ))}
         </div>
-        <div className="03">
-          <h6>03</h6>
-          <h3>Video</h3>
+        <div>
+          {["right"].map((placement) => (
+            <OverlayTrigger
+              key={placement}
+              placement={placement}
+              overlay={
+                <Tooltip id={`tooltip-${placement}`}>
+                  <img src="https://demo.cocobasic.com/romea-wp/demo-1/wp-content/uploads/2020/09/p_item3.jpg"></img>
+                </Tooltip>
+              }
+            >
+              <Button className="bg-black" variant="secondary" style={{border:"none"}}>
+                <div style={{ display: "flex" }}>
+                  <h6>03</h6>
+                  <h3>Video</h3>
+                </div>
+              </Button>
+            </OverlayTrigger>
+          ))}
         </div>
-        <div className="04">
-          <h6>04</h6>
-          <h3>Slide</h3>
+        <div>
+          {["right"].map((placement) => (
+            <OverlayTrigger
+              key={placement}
+              placement={placement}
+              overlay={
+                <Tooltip id={`tooltip-${placement}`}>
+                  <img src="https://demo.cocobasic.com/romea-wp/demo-1/wp-content/uploads/2020/09/p_item4.jpg"></img>
+                </Tooltip>
+              }
+            >
+              <Button className="bg-black" variant="secondary" style={{border:"none"}}>
+                <div style={{ display: "flex" }}>
+                  <h6>04</h6>
+                  <h3>Slide</h3>
+                </div>
+              </Button>
+            </OverlayTrigger>
+          ))}
         </div>
       </div>
       {/* end-page3 --Portfolio*/}
@@ -662,76 +742,75 @@ function App() {
       {/* end-page11 - Download */}
       <div className="container-fluid">
         <div className="row">
-            <div className="col">
-        
-        <h2>Contact</h2>
-        <p>
-          A full stack allaround designer that tristique est placerat in massa{" "}
-          <strong>consectetur quisque</strong> lobortis vitae faucibus diam
-        </p>
-        <div>
-          <strong>
-            Dolor sit amet, consectetur adipiscing elit viverra tristique
-          </strong>
-        </div>
-        <p>
-          <strong>Name:</strong> Rob Davidson
-          <br />
-            <strong>Address:</strong> New York, USA
-          
-          <br />
-            <strong>Phone:</strong> +1 234-567-890
+          <div className="col">
+            <h2>Contact</h2>
+            <p>
+              A full stack allaround designer that tristique est placerat in
+              massa <strong>consectetur quisque</strong> lobortis vitae faucibus
+              diam
+            </p>
+            <div>
+              <strong>
+                Dolor sit amet, consectetur adipiscing elit viverra tristique
+              </strong>
+            </div>
+            <p>
+              <strong>Name:</strong> Rob Davidson
+              <br />
+              <strong>Address:</strong> New York, USA
+              <br />
+              <strong>Phone:</strong> +1 234-567-890
+              <br />
+              <strong>Hours:</strong> 6:00 am – 2:00 am
+            </p>
+          </div>
 
-          <br />
-            <strong>Hours:</strong> 6:00 am – 2:00 am
+          <div className="col">
+            <div className="wrapper">
+              {submitting && <div>Submtting Form...</div>}
+              <form onSubmit={handleSubmit}>
+                <fieldset>
+                  <label>
+                    <p>Name</p>
+                    <input name="name"></input>
+                  </label>
+                  <br />
+                  <label>
+                    <p>Email</p>
+                    <input name="email"></input>
+                  </label>
+                  <br />
+                  <label>
+                    <p>Subject</p>
+                    <input name="subject"></input>
+                  </label>
+                  <br />
+                  <label>
+                    <p>Message</p>
+                    <input name="message"></input>
+                  </label>
+                  <br />
+                </fieldset>
+                <button type="submit">SEND MESSAGE</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* end-page12 - contact */}
+      <div className="container-fluid text-center">
+        <p>
+          © 2022 Romea WordPress Theme by{" "}
+          <a href="https://cocobasic.com/">CocoBasic</a>
         </p>
-        </div>
-        
-        <div className="col">
-        <div className="wrapper">
-          {submitting && 
-            <div>Submtting Form...</div>
-          }
-          <form onSubmit={handleSubmit}>
-            <fieldset>
-              <label>
-                <p>Name</p>
-                <input name="name"></input>
-              </label>
-              <br />
-              <label>
-                <p>Email</p>
-                <input name="email"></input>
-              </label>
-              <br />
-              <label>
-                <p>Subject</p>
-                <input name="subject"></input>
-              </label>
-              <br />
-              <label>
-                <p>Message</p>
-                <input name="message"></input>
-              </label>
-              <br />
-            </fieldset>
-            <button type="submit">SEND MESSAGE</button>
-            </form>
-        </div>
-        </div>
-        </div>
-        </div>
-        {/* end-page12 - contact */}
-        <div className="container-fluid text-center">
-        <p>© 2022 Romea WordPress Theme by <a href="https://cocobasic.com/">CocoBasic</a></p>
         <div d-sm-flex>
-        <i className="fa-brands fa-twitter fa-2xl"></i>
-        <i className="fa-brands fa-facebook fa-2xl"></i>
-        <i className="fa-brands fa-dribbble fa-2xl"></i>
-        <i className="fa-solid fa-rss fa-2xl"></i>
+          <i className="fa-brands fa-twitter fa-2xl"></i>
+          <i className="fa-brands fa-facebook fa-2xl"></i>
+          <i className="fa-brands fa-dribbble fa-2xl"></i>
+          <i className="fa-solid fa-rss fa-2xl"></i>
         </div>
-        </div>
-        {/* end-page13 - footer */}
+      </div>
+      {/* end-page13 - footer */}
     </div>
   );
 }
